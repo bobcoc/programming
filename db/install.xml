@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/programming/db" VERSION="20100412" COMMENT="XMLDB file for Moodle mod/programming"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="programming" COMMENT="programming table retrofitted from MySQL" NEXT="programming_languages">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="course"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="course" NEXT="intro"/>
+        <FIELD NAME="intro" TYPE="text" LENGTH="medium" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="name" NEXT="introformat"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="2" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="intro" NEXT="grade"/>
+        <FIELD NAME="grade" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="introformat" NEXT="globalid"/>
+        <FIELD NAME="globalid" TYPE="char" LENGTH="10" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="grade" NEXT="timeopen"/>
+        <FIELD NAME="timeopen" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="globalid" NEXT="timeclose"/>
+        <FIELD NAME="timeclose" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="timeopen" NEXT="timelimit"/>
+        <FIELD NAME="timelimit" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="timeclose" NEXT="memlimit"/>
+        <FIELD NAME="memlimit" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="timelimit" NEXT="nproc"/>
+        <FIELD NAME="nproc" TYPE="int" LENGTH="2" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="memlimit" NEXT="timediscount"/>
+        <FIELD NAME="timediscount" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="130000000" SEQUENCE="false" ENUM="false" PREVIOUS="nproc" NEXT="discount"/>
+        <FIELD NAME="discount" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="true" DEFAULT="9" SEQUENCE="false" ENUM="false" PREVIOUS="timediscount" NEXT="allowlate"/>
+        <FIELD NAME="allowlate" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="discount" NEXT="attempts"/>
+        <FIELD NAME="attempts" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="allowlate" NEXT="keeplatestonly"/>
+        <FIELD NAME="keeplatestonly" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="attempts" NEXT="inputfile"/>
+        <FIELD NAME="inputfile" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="keeplatestonly" NEXT="outputfile"/>
+        <FIELD NAME="outputfile" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="inputfile" NEXT="presetcode"/>
+        <FIELD NAME="presetcode" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="outputfile" NEXT="generator"/>
+        <FIELD NAME="generator" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="presetcode" NEXT="validator"/>
+        <FIELD NAME="validator" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="generator" NEXT="generatortype"/>
+        <FIELD NAME="generatortype" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="validator" NEXT="validatortype"/>
+        <FIELD NAME="validatortype" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="generatortype" NEXT="validatorlang"/>
+        <FIELD NAME="validatorlang" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="validatortype" NEXT="showmode"/>
+        <FIELD NAME="showmode" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="true" DEFAULT="1" SEQUENCE="false" ENUM="false" PREVIOUS="validatorlang" NEXT="timemodified"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="showmode"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="mdl_prog_cou_ix" UNIQUE="false" FIELDS="course"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="programming_languages" COMMENT="programming_languages table retrofitted from MySQL" PREVIOUS="programming" NEXT="programming_tests">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="description"/>
+        <FIELD NAME="description" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="name" NEXT="sourceext"/>
+        <FIELD NAME="sourceext" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="description" NEXT="langmode"/>
+        <FIELD NAME="langmode" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="sourceext" NEXT="headerext"/>
+        <FIELD NAME="headerext" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="langmode"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="programming_tests" COMMENT="programming_tests table retrofitted from MySQL" PREVIOUS="programming_languages" NEXT="programming_submits">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="programmingid"/>
+        <FIELD NAME="programmingid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="seq"/>
+        <FIELD NAME="seq" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="programmingid" NEXT="input"/>
+        <FIELD NAME="input" TYPE="text" LENGTH="medium" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="seq" NEXT="gzinput"/>
+        <FIELD NAME="gzinput" TYPE="binary" LENGTH="medium" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="input" NEXT="output"/>
+        <FIELD NAME="output" TYPE="text" LENGTH="medium" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="gzinput" NEXT="gzoutput"/>
+        <FIELD NAME="gzoutput" TYPE="binary" LENGTH="medium" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="output" NEXT="cmdargs"/>
+        <FIELD NAME="cmdargs" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="gzoutput" NEXT="timelimit"/>
+        <FIELD NAME="timelimit" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="cmdargs" NEXT="memlimit"/>
+        <FIELD NAME="memlimit" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="timelimit" NEXT="nproc"/>
+        <FIELD NAME="nproc" TYPE="int" LENGTH="2" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="memlimit" NEXT="pub"/>
+        <FIELD NAME="pub" TYPE="int" LENGTH="3" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="nproc" NEXT="weight"/>
+        <FIELD NAME="weight" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="true" DEFAULT="3" SEQUENCE="false" ENUM="false" PREVIOUS="pub" NEXT="memo"/>
+        <FIELD NAME="memo" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="weight" NEXT="timemodified"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="memo"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="mdl_progtest_pro_ix" UNIQUE="false" FIELDS="programmingid" NEXT="mdl_progtest_pub_ix"/>
+        <INDEX NAME="mdl_progtest_pub_ix" UNIQUE="false" FIELDS="pub" PREVIOUS="mdl_progtest_pro_ix"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="programming_submits" COMMENT="Programs submitted by users are stored in this table." PREVIOUS="programming_tests" NEXT="programming_test_results">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="programmingid"/>
+        <FIELD NAME="programmingid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="userid"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="programmingid" NEXT="timemodified"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="userid" NEXT="language"/>
+        <FIELD NAME="language" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="timemodified" NEXT="code"/>
+        <FIELD NAME="code" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="language" NEXT="codelines"/>
+        <FIELD NAME="codelines" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="code" NEXT="codesize"/>
+        <FIELD NAME="codesize" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="codelines" NEXT="status"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="codesize" NEXT="compilemessage"/>
+        <FIELD NAME="compilemessage" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="status" NEXT="timeused"/>
+        <FIELD NAME="timeused" TYPE="float" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="compilemessage" NEXT="memused"/>
+        <FIELD NAME="memused" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="timeused" NEXT="judgeresult"/>
+        <FIELD NAME="judgeresult" TYPE="char" LENGTH="5" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="memused" NEXT="passed"/>
+        <FIELD NAME="passed" TYPE="int" LENGTH="1" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="judgeresult"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="questionid" UNIQUE="false" FIELDS="programmingid, userid, language, status" NEXT="timemodified"/>
+        <INDEX NAME="timemodified" UNIQUE="false" FIELDS="timemodified" PREVIOUS="questionid" NEXT="passed"/>
+        <INDEX NAME="passed" UNIQUE="false" FIELDS="passed" PREVIOUS="timemodified" NEXT="prog_timeused"/>
+        <INDEX NAME="prog_timeused" UNIQUE="false" FIELDS="programmingid, timeused" PREVIOUS="passed" NEXT="prog_memused"/>
+        <INDEX NAME="prog_memused" UNIQUE="false" FIELDS="programmingid, memused" PREVIOUS="prog_timeused" NEXT="prog_judgeresult"/>
+        <INDEX NAME="prog_judgeresult" UNIQUE="false" FIELDS="programmingid, judgeresult" PREVIOUS="prog_memused"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="programming_test_results" COMMENT="programming_test_results table retrofitted from MySQL" PREVIOUS="programming_submits" NEXT="programming_result">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="submitid"/>
+        <FIELD NAME="submitid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="testid"/>
+        <FIELD NAME="testid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="submitid" NEXT="passed"/>
+        <FIELD NAME="passed" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="testid" NEXT="exitcode"/>
+        <FIELD NAME="exitcode" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="passed" NEXT="exitsignal"/>
+        <FIELD NAME="exitsignal" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="exitcode" NEXT="output"/>
+        <FIELD NAME="output" TYPE="binary" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="exitsignal" NEXT="stderr"/>
+        <FIELD NAME="stderr" TYPE="binary" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="output" NEXT="timeused"/>
+        <FIELD NAME="timeused" TYPE="float" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" ENUM="false" PREVIOUS="stderr" NEXT="memused"/>
+        <FIELD NAME="memused" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" ENUM="false" PREVIOUS="timeused" NEXT="judgeresult"/>
+        <FIELD NAME="judgeresult" TYPE="char" LENGTH="5" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="memused"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for programming_test_results"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="submitid" UNIQUE="false" FIELDS="submitid, testid, passed" NEXT="testid"/>
+        <INDEX NAME="testid" UNIQUE="false" FIELDS="testid" PREVIOUS="submitid" NEXT="timeused"/>
+        <INDEX NAME="timeused" UNIQUE="false" FIELDS="timeused" PREVIOUS="testid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="programming_result" COMMENT="Record submit count and latestsubmit for each user of each programming exercise." PREVIOUS="programming_test_results" NEXT="programming_resemble">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="programmingid"/>
+        <FIELD NAME="programmingid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="userid"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="programmingid" NEXT="submitcount"/>
+        <FIELD NAME="submitcount" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="userid" NEXT="latestsubmitid"/>
+        <FIELD NAME="latestsubmitid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="submitcount"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for programming_result"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="programming-user" UNIQUE="false" FIELDS="programmingid, userid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="programming_resemble" COMMENT="programming_resemble table retrofitted from MySQL" PREVIOUS="programming_result" NEXT="programming_langlimit">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="programmingid"/>
+        <FIELD NAME="programmingid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="matchedcount"/>
+        <FIELD NAME="matchedcount" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="programmingid" NEXT="matchedlines"/>
+        <FIELD NAME="matchedlines" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="matchedcount" NEXT="submitid1"/>
+        <FIELD NAME="submitid1" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="matchedlines" NEXT="percent1"/>
+        <FIELD NAME="percent1" TYPE="int" LENGTH="2" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="submitid1" NEXT="submitid2"/>
+        <FIELD NAME="submitid2" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="percent1" NEXT="percent2"/>
+        <FIELD NAME="percent2" TYPE="int" LENGTH="2" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="submitid2" NEXT="flag"/>
+        <FIELD NAME="flag" TYPE="int" LENGTH="2" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="percent2"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for programming_resemble"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="proglines" UNIQUE="false" FIELDS="programmingid, flag, matchedcount"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="programming_langlimit" COMMENT="programming_langlimit table retrofitted from MySQL" PREVIOUS="programming_resemble" NEXT="programming_datafile">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="programmingid"/>
+        <FIELD NAME="programmingid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="languageid"/>
+        <FIELD NAME="languageid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" ENUM="false" PREVIOUS="programmingid"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for programming_langlimit" NEXT="programminglanguage"/>
+        <KEY NAME="programminglanguage" TYPE="unique" FIELDS="programmingid, languageid" PREVIOUS="primary" NEXT="languageprogramming"/>
+        <KEY NAME="languageprogramming" TYPE="unique" FIELDS="languageid, programmingid" PREVIOUS="programminglanguage"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="programming_datafile" COMMENT="programming_datafile table retrofitted from MySQL" PREVIOUS="programming_langlimit" NEXT="programming_presetcode">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="programmingid"/>
+        <FIELD NAME="programmingid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="seq"/>
+        <FIELD NAME="seq" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="programmingid" NEXT="filename"/>
+        <FIELD NAME="filename" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="seq" NEXT="isbinary"/>
+        <FIELD NAME="isbinary" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="filename" NEXT="datasize"/>
+        <FIELD NAME="datasize" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="isbinary" NEXT="data"/>
+        <FIELD NAME="data" TYPE="binary" LENGTH="medium" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="datasize" NEXT="checkdatasize"/>
+        <FIELD NAME="checkdatasize" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="data" NEXT="checkdata"/>
+        <FIELD NAME="checkdata" TYPE="binary" LENGTH="medium" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="checkdatasize" NEXT="memo"/>
+        <FIELD NAME="memo" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="checkdata" NEXT="timemodified"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="memo"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="mdl_progdata_profil_uix"/>
+        <KEY NAME="mdl_progdata_profil_uix" TYPE="unique" FIELDS="programmingid, filename" PREVIOUS="primary"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="mdl_progdata_proseq_ix" UNIQUE="false" FIELDS="programmingid, seq"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="programming_presetcode" COMMENT="programming_presetcode table retrofitted from MySQL" PREVIOUS="programming_datafile" NEXT="programming_testers">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="programmingid"/>
+        <FIELD NAME="programmingid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="languageid"/>
+        <FIELD NAME="languageid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="programmingid" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="languageid" NEXT="sequence"/>
+        <FIELD NAME="sequence" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="name" NEXT="presetcode"/>
+        <FIELD NAME="presetcode" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="sequence" NEXT="presetcodeforcheck"/>
+        <FIELD NAME="presetcodeforcheck" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="presetcode"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="mdl_progpres_prolannam_uix"/>
+        <KEY NAME="mdl_progpres_prolannam_uix" TYPE="unique" FIELDS="programmingid, languageid, name" PREVIOUS="primary"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="mdl_progpres_proseq_ix" UNIQUE="false" FIELDS="programmingid, sequence"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="programming_testers" COMMENT="Judging information is saved in this table." PREVIOUS="programming_presetcode">
+      <FIELDS>
+        <FIELD NAME="submitid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" NEXT="testerid"/>
+        <FIELD NAME="testerid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" ENUM="false" PREVIOUS="submitid" NEXT="priority"/>
+        <FIELD NAME="priority" TYPE="int" LENGTH="1" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="testerid" NEXT="state"/>
+        <FIELD NAME="state" TYPE="int" LENGTH="2" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="priority"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="submitid"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="idx_testerid" UNIQUE="false" FIELDS="testerid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+  <STATEMENTS>
+    <STATEMENT NAME="insert programming_languages" TYPE="insert" TABLE="programming_languages" COMMENT="Initial insert of records on table programming_languages">
+      <SENTENCES>
+        <SENTENCE TEXT="(name, description, sourceext, headerext) VALUES ('gcc-3.3', 'C (GCC 3.3)', '.c', '.h')" />
+        <SENTENCE TEXT="(name, description, sourceext, headerext) VALUES ('g++-3.3', 'C++ (G++ 3.3)', '.cpp .cxx', '.h .hpp')" />
+        <SENTENCE TEXT="(name, description, sourceext, headerext) VALUES ('java-1.5', 'Java (Sun JDK 5)', '.java', NULL)" />
+        <SENTENCE TEXT="(name, description, sourceext, headerext) VALUES ('java-1.6', 'Java (Sun JDK 6)', '.java', NULL)" />
+        <SENTENCE TEXT="(name, description, sourceext, headerext) VALUES ('fpc-2.2', 'Pascal (Free Pascal 2)', '.pas', NULL)" />
+        <SENTENCE TEXT="(name, description, sourceext, headerext) VALUES ('python-2.5', 'Python 2.5', '.py', NULL)" />
+        <SENTENCE TEXT="(name, description, sourceext, headerext) VALUES ('gmcs-2.0', 'C# (Mono 2.0)', '.cs', NULL)" />
+        <SENTENCE TEXT="(name, description, sourceext, headerext) VALUES ('bash-3', 'Bash (Bash 3)', '.sh', NULL)" />
+      </SENTENCES>
+    </STATEMENT>
+  </STATEMENTS>
+</XMLDB>

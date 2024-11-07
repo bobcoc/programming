@@ -1,0 +1,506 @@
+.path-mod-programming .userpicture {
+    vertical-align: middle;
+}
+
+.path-mod-programming #region-main .region-content {
+    font-size: 14px;
+}
+
+.path-mod-programming #region-main .region-content h2 {
+    text-align: center;
+    padding: 4px;
+}
+
+.path-mod-programming #region-main .region-content h3 {
+    text-align: center;
+}
+
+.path-mod-programming #region-main .region-content .generaltable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.path-mod-programming #region-main .region-content .cell {
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.path-mod-programming #region-main .region-content .description,
+.path-mod-programming #region-main .region-content form .felement {
+    text-align: left;
+}
+
+.path-mod-programming .buttons {
+    margin: 1em;
+    text-align: center;
+}
+
+.path-mod-programming .filters dl {
+    font-size: 12px;
+}
+
+.path-mod-programming .filters dl {
+    margin: 0 0 5px;
+}
+
+.path-mod-programming .filters dt {
+    float: left;
+    width: 80px;
+    font-weight: bold;
+    text-align: right;
+    line-height: 25px;
+}
+
+.path-mod-programming .filters dd {
+    float: none;
+    height: auto;
+    margin: 0 0 0 80px;
+    padding: 0;
+    text-align: left;
+    display: block;
+}
+
+.path-mod-programming .filters dd span {
+    line-height: 23px;
+    margin-left: 10px;
+}
+
+.path-mod-programming .filters a {
+    padding: 1px 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.path-mod-programming .filters a.here,
+.path-mod-programming .filters a:hover,
+.path-mod-programming .filters a:active {
+    background-color: #4598D2;
+    color: white;
+}
+
+#page-mod-programming-view #region-main .region-content h3 { text-align: left; }
+.path-mod-programming #intro { text-align: left; padding: 0em 1em 0em 1em; }
+.path-mod-programming #datafile { text-align: left; padding: 0em 1em 0em 1em; }
+.path-mod-programming #presetcode { text-align: left; padding: 0em 1em 0em 1em; }
+.path-mod-programming #presetcode pre { background-color: #eeeeee; padding: 0em 0.5em 0em 2.5em; }
+.path-mod-programming #testcase-table { padding: 1em; }
+.path-mod-programming #time-table th { text-align: right }
+.path-mod-programming #time-table td { text-align: left }
+
+.path-mod-programming #submitagainconfirm,
+.path-mod-programming #submitagainconfirm p {
+    text-align: center;
+}
+
+.path-mod-programming .compilemessage {
+  padding: 1px;
+  margin: 0 auto;
+  font-family: "Consolas","Courier New",Courier,mono,serif;
+  font-weight: bold;
+  text-align: left;
+  background: #F0A0A0;
+}
+.path-mod-programming .compilemessage ol {
+  list-style-type: none;
+}
+.path-mod-programming .compilemessage li, .compilemessage li.warning,
+.path-mod-programming .compilemessage li.normal, .compilemessage li.error {
+  font-family: "Consolas","Courier New",Courier,mono,serif;
+  font-style: normal;
+  font-weight: bold;
+}
+.path-mod-programming .compilemessage li.warning {
+  color: black;
+}
+.path-mod-programming .compilemessage li.normal {
+  color: blue;
+}
+.path-mod-programming .compilemessage li.error {
+  color: #800000;
+}
+
+.path-mod-programming #test-result-detail .passed,
+.path-mod-programming #test-result-detail .passed .cell {
+    background-color: #A0EEA0; /* light green */
+}
+.path-mod-programming #test-result-detail .notpassed,
+.path-mod-programming #test-result-detail .notpassed .cell {
+    background-color: #F0A0A0; /* light red */
+}
+
+#page-mod-programming-history td { vertical-align: top; }
+#page-mod-programming-history #submitlist {
+    display: block;
+    width: 14em;
+}
+#page-mod-programming-history #submitlist table {
+    margin: 0.5em 0;
+}
+#page-mod-programming-history #submitlist table th,
+#page-mod-programming-history #submitlist table td {
+    padding: 1px;
+}
+
+.path-mod-programming #codeview {
+    display: block;
+    width: 46em;
+    height: 29em;
+    text-align: left;
+    overflow: scroll;
+}
+
+.path-mod-programming .diff {
+    margin: 0 auto;
+    width: 52em;
+}
+
+.path-mod-programming .diff th {
+    color: #666666;
+    font-weight: normal;
+    padding: 0 0.6em;
+    text-align: right;
+    width: 2em;
+}
+
+.path-mod-programming .diff td {
+    font-family: "Consolas","Courier New",Courier,mono,serif;
+}
+
+.path-mod-programming .diff .added {
+    background-color: #99FF99;
+    border-color: #33AA33;
+    border-style: solid;
+    border-width: 0 1px;
+}
+
+.path-mod-programming .diff .deleted {
+    background-color: #FF8888;
+    border-color: #AA3333;
+    border-style: solid;
+    border-width: 0 1px;
+}
+
+.path-mod-programming .diff .first {
+    border-top-width: 1px;
+}
+
+.path-mod-programming .diff .last {
+    border-bottom-width: 1px;
+}
+
+.path-mod-programming .diff .added-changed {
+    background-color: #DDF8CC;
+    border-color: #33AA33;
+    border-style: solid;
+    border-width: 0 1px;
+}
+
+.path-mod-programming .diff .deleted-changed {
+    background-color: #FFD8D8;
+    border-color: #AA3333;
+    border-style: solid;
+    border-width: 0 1px;
+}
+
+.path-mod-programming .resemble-compare-programs {
+    height: 30em;
+}
+.path-mod-programming .resemble-compare-programs div {
+    overflow: scroll;
+    height: 30em;
+    max-width: 480px;
+    float: left;
+}
+
+.path-mod-programming .code {
+    font-family: monospace;
+    background-color: #e7e7e7;
+}
+.path-mod-programming .match1 { color: Red; }
+.path-mod-programming .match2 { color: BlueViolet; }
+.path-mod-programming .match3 { color: Brown; }
+.path-mod-programming .match4 { color: BurlyWood; }
+.path-mod-programming .match5 { color: CadetBlue; }
+.path-mod-programming .match6 { color: DarkGoldenRod; }
+.path-mod-programming .match7 { color: Chocolate; }
+.path-mod-programming .match8 { color: DarkGreen; }
+
+.path-mod-programming .resemble-list .cell { text-align: center; }
+.path-mod-programming .resemble-list .warned { color: orange; }
+.path-mod-programming .resemble-list .confirmed { color: red; }
+.path-mod-programming .resemble-list .flag3 { color: #888888; }
+
+.path-mod-programming-reports table {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.path-mod-programming-reports table .fullname {
+    text-align: left;
+}
+
+.path-mod-programming .chart {
+    height: 300px;
+    width: 400px;
+    margin: 10px auto;
+}
+
+.path-mod-programming .noticebox {
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+    background-color: #FFAAAA;
+    width: 60%;
+}
+
+.path-mod-programming td.programming-io a {
+    font-size: 9pt;
+}
+
+.path-mod-programming td.programming-io div {
+    vertical-align: top;
+    padding: 0px 5px 0px 0px;
+    width: 10em;
+    height: 10em;
+    overflow: auto;
+}
+
+.path-mod-programming td.programming-io ol {
+    text-align: left;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding: 0 0 0 auto;
+    overflow: visible;
+}
+
+.path-mod-programming td.programming-io li {
+    font-family: "Consolas","Courier New",Courier,mono,serif;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}
+
+.path-mod-programming td.programming-io span {
+    background-color: #D3D3D3;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.hl-default {
+    color: Black;
+}
+.hl-code {
+    color: Gray;
+}
+.hl-brackets {
+    color: Olive;
+}
+.hl-comment {
+    color: Orange;
+}
+.hl-quotes {
+    color: Darkred;
+}
+.hl-string {
+    color: Red;
+}
+.hl-identifier {
+    color: Blue;
+}
+.hl-builtin {
+    color: Teal;
+}
+.hl-reserved {
+    color: Green;
+}
+.hl-inlinedoc {
+    color: Blue;
+}
+.hl-var {
+    color: Darkblue;
+}
+.hl-url {
+    color: Blue;
+}
+.hl-special {
+    color: Navy;
+}
+.hl-number {
+    color: Maroon;
+}
+.hl-inlinetags {
+    color: Blue;
+}
+.hl-main { 
+    background-color: White;
+}
+.hl-gutter {
+    background-color: #999999;
+    color: White
+}
+.hl-table {
+    font-family: "Consolas","Courier New",Courier,mono,serif;
+    font-size: 12px;
+    border: solid 1px Lightgrey;
+}
+.dp-highlighter li {
+    font-family: "Consolas","Courier New",Courier,mono,serif;
+}
+
+.default_input
+{
+	border:1px solid #666666;
+	height:18px;
+	font-size:12px;
+}
+.default_input2
+{
+	border:1px solid #666666;
+	height:18px;
+	font-size:12px;
+}
+.nowrite_input
+{
+	border:1px solid #849EB5;
+	height:18px;
+	font-size:12px;
+	background-color:#EBEAE7;
+	color: #9E9A9E;
+}
+.default_list
+{
+	font-size:12px;
+  border:1px solid #849EB5;
+}
+.default_textarea
+{
+	font-size:12px;
+	border:1px solid #849EB5;
+}
+.nowrite_textarea
+{
+	border:1px solid #849EB5;
+	font-size:12px;
+	background-color:#EBEAE7;
+	color: #9E9A9E;
+}
+.wordtd5 {
+	font-size: 12px;
+	text-align: center;
+	vertical-align:top;
+	padding-top: 6px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+	background-color: #b8c4f4;
+}
+.wordtd {
+	font-size: 12px;
+	text-align: left;
+	vertical-align:top;
+	padding-top: 6px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+	background-color: #b8c4f4;
+}
+.wordtd_1 {
+	font-size: 12px;
+	vertical-align:top;
+	padding-top: 6px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+	background-color: #516CD6;
+	color:#fff;
+}
+.wordtd_2{
+	font-size: 12px;
+	text-align: right;
+	vertical-align:top;
+	padding-top: 6px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+	background-color: #64BDF9;
+}
+.wordtd_3{
+	font-size: 12px;
+	text-align: right;
+	vertical-align:top;
+	padding-top: 6px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+	background-color: #F1DD34;
+}
+.inputtd
+{
+	font-size:12px;
+	vertical-align:top;
+	padding-top: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	padding-left: 3px;
+}
+.inputtd2
+{
+	text-align: center;
+	font-size:12px;
+	vertical-align:top;
+	padding-top: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	padding-left: 3px;
+}
+.tablebg
+{
+	font-size:12px;
+}
+.tb{
+	border-collapse: collapse;
+	border: 1px outset #999999;
+	background-color: #FFFFFF;
+}
+.td2{line-height:22px; text-align:center; background-color:#F6F6F6;}
+.td3{background-color:#B8D3F4; text-align:center; line-height:20px;}
+.td4{background-color:#F6F6F6;line-height:20px;}
+.td5{border:#000000 solid;
+       border-right-width:0px;
+	   border-left-width:0px;
+	   border-top-width:0px;
+	   border-bottom-width:1px;}
+.tb td{
+font-size: 12px;
+border: 2px groove #ffffff;
+}
+.noborder {
+	border: none;
+}
+.button {
+	border: 1px ridge #ffffff;
+	line-height:18px;
+	height: 40px;
+	width: 45px;
+	padding-top: 0px;
+	background:#CBDAF7;
+	color:#000000;
+	font-size: 9pt;
+} 
+.textarea {
+	font-family: Arial, Helvetica, sans-serif, "??";
+	font-size: 9pt;
+	color: #000000;
+	border-bottom-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-bottom-color: #000000;
+	background-color:transparent;
+	text-align: left
+}
